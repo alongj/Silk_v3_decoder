@@ -12,12 +12,6 @@ silk->pcm->mp3
 
 mp3->pcm->silk
 
-### dependencies
-
-```
-implementation 'com.fulongbin.silk_v3_decoder:decoder:0.9.11'
-
-```
 
 ### 格式互换
 
