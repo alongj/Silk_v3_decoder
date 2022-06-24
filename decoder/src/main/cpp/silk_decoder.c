@@ -147,6 +147,11 @@ int convertSilk2PCM(const char* src, const FILE* destFile, int rate) {
 #ifdef _SYSTEM_IS_BIG_ENDIAN
         swap_endian( &nBytes, 1 );
 #endif
+        if(nBytes >= SSIZE_MAX)
+        {
+            printf( "\n read payload size too large nBytes= %ld", nBytes );
+            return -1;
+        }
         /* Read payload */
         counter = fread( payloadEnd, sizeof( SKP_uint8 ), nBytes, bitInFile );
 
@@ -164,6 +169,11 @@ int convertSilk2PCM(const char* src, const FILE* destFile, int rate) {
 #ifdef _SYSTEM_IS_BIG_ENDIAN
         swap_endian( &nBytes, 1 );
 #endif
+        if(nBytes >= SSIZE_MAX)
+        {
+            printf( "\n read payload size too large nBytes= %ld", nBytes );
+            return -1;
+        }
         if( nBytes < 0 || counter < 1 ) {
             break;
         }
