@@ -74,6 +74,10 @@ int convertSilk2PCM(const char* src, const FILE* destFile, int rate) {
     SKP_int32 frames, lost, quiet;
     SKP_SILK_SDK_DecControlStruct DecControl;
 
+    /** default settings */
+    quiet = 0;
+    loss_prob = 0.0f;
+
     strcpy( bitInFileName, src );
 
     if( !quiet ) {
